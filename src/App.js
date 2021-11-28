@@ -11,21 +11,31 @@ import React,{Component} from "react";
 //  }
 //}
 
-const Cat = ()=>{
+const User = (props)=>{
   return (
     <div>
-    Meow!
+    Hi, I am {props.name}! an {props.age} years old!
     </div>
   )
 }
+
+User.defaultProps = {
+  age:1
+}
+
 const App = ()=>{
+  const profiles = [
+    {name: "Taro",age:10},
+    {name: "Hanko",age:6},
+    {name:"Noname",}
+  ]
   return (
     <div>
-    <Cat />
-    <Cat />
-    <Cat />
-    <Cat />
-    </div>
+    {
+    profiles.map((profile,index) => {
+      return <User name={profile.name} age =  {profile.age} key = {index}/>
+})}
+  </div>
   )
 }
 export default App;
